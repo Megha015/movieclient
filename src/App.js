@@ -51,9 +51,13 @@ const App = () => {
       <div className="search">
         <input
           type="text"
-          placeholder="Enter the movie name"
           value={search}
-          onChange={handleChange}
+          onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              searchMovies(search);
+            }
+          }}
         />
         <img
           src={SearchIcon}
